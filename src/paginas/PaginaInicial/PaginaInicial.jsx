@@ -29,10 +29,16 @@ const PaginaInicial = () => {
       </BotaoCustomizado>
 
       <BotaoCustomizado
+<<<<<<< HEAD
         cor="primaria"
         aoClicar={() => navigate('/lista-clientes')}
       >
         Lista de Clientes
+=======
+        aoClicar={() => navigate('/lista')}
+      >
+        Lista de Produtos
+>>>>>>> bb298ca6b239d2db2ca837efdbd86ad4063b6b87
       </BotaoCustomizado>
     </Principal>
   );

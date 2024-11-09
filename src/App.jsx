@@ -30,6 +30,7 @@ const router = createBrowserRouter([
   },
   {
     path: '',
+<<<<<<< HEAD
     element: <VerificarAutentificacao />,
     children: [ {
       path: '',
@@ -47,6 +48,29 @@ const router = createBrowserRouter([
       path: 'cadastro-cliente/:id?',
       element: <PaginaCadastroCliente />,
     },]
+=======
+    element: <PaginaInicial />,
+  },
+  {
+    path: 'lista-produtos',
+    element: <ListaProdutos />,
+  },
+  {
+    path: 'botao-contador',
+    element: <BotaoContador />,
+  },
+  {
+    path: 'lista-tarefas',
+    element: <PaginaListaTarefas />,
+  },
+  {
+    path: 'lista-clientes',
+    element: <PaginaListaClientes />,
+  },
+  {
+    path: 'cadastro-cliente/:id?',
+    element: <PaginaCadastroCliente />,
+>>>>>>> bb298ca6b239d2db2ca837efdbd86ad4063b6b87
   },
  
 ]);
