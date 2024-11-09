@@ -1,23 +1,59 @@
 class ServicoCliente {
-
     listar() {
-        const clientesDoLocalStorage = localStorage.getItem('clientes')
-        if(clientesDoLocalStorage){
-            return JSON.parse(clientesDoLocalStorage);
+      const clientesDoLocalStorage = localStorage.getItem(
+        'lista-clientes'
+      );
+      if (clientesDoLocalStorage) {
+        return JSON.parse(clientesDoLocalStorage);
+      }
+  
+      return [];
+    }
+  
+    cadastrarCliente(novoCliente) {
+      const clientesDoLocalStorage = this.listar();
+      clientesDoLocalStorage.push(novoCliente);
+      localStorage.setItem(
+        'lista-clientes',
+        JSON.stringify(clientesDoLocalStorage)
+      );
+    }
+  
+    editarCliente(cliente) {
+      const clientesDoLocalStorage = this.listar();
+      const indexCliente = clientesDoLocalStorage.findIndex(
+        (c) => c.id === +cliente.id
+      );
+      clientesDoLocalStorage[indexCliente] = cliente;
+      localStorage.setItem(
+        'lista-clientes',
+        JSON.stringify(clientesDoLocalStorage)
+      );
+    }
+  
+    buscarPorId(idCliente) {
+      const clientesDoLocalStorage = this.listar();
+      return clientesDoLocalStorage.find(
+        (c) => c.id === +idCliente
+      );
+    }
+
+    excluirCliente(idCliente) {
+      const clientesDoLocalStorage = this.listar();
+  
+      const listaAtualizada = clientesDoLocalStorage.filter(
+        (c) => {
+          return c.id !== idCliente;
         }
-
-        return [];
-
+      );
+  
+      localStorage.setItem(
+        'lista-clientes',
+        JSON.stringify(listaAtualizada)
+      );
+      return listaAtualizada;
     }
 
-    salvar(clienteParaSalvar) {
-        const clientesDoLocalStorage = this.listar();
-        clientesDoLocalStorage.push(cliente);
-        localStorage.setItem(
-            'clientes',
-            JSON.stringify(clientesDoLocalStorage)
-        );
-
-    }
-}
-export default ServicoCliente;
+  }
+  
+  export default ServicoCliente;
